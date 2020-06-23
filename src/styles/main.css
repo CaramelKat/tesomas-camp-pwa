@@ -1,0 +1,135 @@
+html {
+  background-color: #003F87;
+}
+body {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  justify-content: space-between;
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1 {
+  Color: white;
+}
+header {
+  background-color: #003F87;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
+  0 3px 1px -2px rgba(0,0,0,.2),
+  0 1px 5px 0 rgba(0,0,0,.12);
+  box-sizing: border-box;
+  display: flex;
+  float: right;
+  justify-content: center;
+  width: 100%;
+}
+.banner {
+  align-content: center;
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
+button {
+  background-color: #003F87;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  letter-spacing: 0;
+  margin: 10px;
+  min-width: 100px;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 30%;
+}
+.card {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
+  0 3px 1px -2px rgba(0,0,0,.2),
+  0 1px 5px 0 rgba(0,0,0,.12);
+  margin: 10px;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.wrap    {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),
+  0 3px 1px -2px rgba(0,0,0,.2),
+  0 1px 5px 0 rgba(0,0,0,.12);
+  margin: 10px;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.center {
+  justify-content: center;
+}
+
+h2 {
+  margin: 10px;
+}
+li {
+  color: #003F87;
+  margin: 0 0 10px 0;
+}
+p {
+  padding: 10px;
+  text-align: center;
+}
+.img-container {
+  background-color: black;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: black;
+  font-weight: bold;
+}
+.flex-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  width: 100%;
+}
+footer {
+  box-sizing: border-box;
+  height: auto;
+  padding: 0;
+  width: 100%;
+}

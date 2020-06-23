@@ -1,0 +1,182 @@
+<!--
+Tesomas.Camp PWA Rewrite
+
+Written by Jay Poffinbarger
+
+This project makes use of the free version of Font Awesome for the icons.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="Description" content="Tesomas.Camp supplies quick access to information and tools that will make
+                                    your visit to Camp Tesomas as fun and engaging as possible.">
+  <script src="https://kit.fontawesome.com/1b88120e53.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+
+  <title>Tesomas Scout Camp</title>
+  <!--Import CSS and Web Manifest File-->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="manifest" href="manifest.json">
+
+  <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Tesomas Scout Camp">
+  <meta name="apple-mobile-web-app-title" content="Tesomas Scout Camp">
+  <meta name="theme-color" content="#003F87">
+  <meta name="msapplication-navbutton-color" content="#003F87">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-starturl" content="/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+  <link rel="icon" sizes="192x192" href="icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+  <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+  <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+  <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+</head>
+
+<body>
+  <header>
+    <h1>Camp Tesomas</h1>
+  </header>
+    <!--Tile Elements Div-->
+    <div>
+      <!--Banner to show when device is offline-->
+      <ul id="offlineBanner" class="flex-container center" style="display: none">
+        <li class="flex-item">
+          <div style="text-align: center;"><a class="fas fas fa-exclamation-triangle fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Your Offline</h2>
+          <h3 style="text-align: center;">Connect to the internet to use all of the apps features</h3>
+        </li>
+      </ul>
+      <!--Main Tiles Wrapper-->
+      <ul class="flex-container wrap center">
+        <!--Area Events Tile-->
+        <li id="areaEvents" class="flex-item" onclick="location.href='http://calendar.google.com/calendar/embed?src=samoset.org_aidmtv7tu52qpbs0cinfmmqeik@group.calendar.google.com&amp;mode=agenda'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-calendar-week fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Area Events</h2>
+        </li>
+        <!--Firewood Order Tile-->
+        <li id="firewoodOrder"  class="flex-item" onclick="location.href='tel:7153653111'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-phone fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Firewood</h2>
+        </li>
+        <!--Adult Leader Sign In/Out Tile-->
+        <li id="adultSignIn"  class="flex-item" onclick="location.href='https://airtable.com/shrGvS97UPadx4sSi'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="far fa-clipboard fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Adult Leader Sign In & Out</h2>
+        </li>
+        <!--Submit Photos Tile-->
+        <li id="sendPhotos"  class="flex-item" onclick="location.href='mailto:photos@campingisking.com'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-photo-video fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Send Photos</h2>
+        </li>
+        <!--Camp Survey Tile-->
+        <li id="campSurvey"  class="flex-item" onclick="location.href='https://samoset.doubleknot.com/form/takesurvey.aspx?surveyid=57058&orgkey=1438'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-poll fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Camp Survey</h2>
+        </li>
+        <!--Online Camp Map Tile-->
+        <li id="campMap"  class="flex-item" onclick="location.href='https://www.google.com/maps/d/u/0/viewer?mid=11T7dJtmoduWAah2Mf_F-7o4LBmzqYMGb&ll=45.72625565325383%2C-89.42473033938501&z=15'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-map-marker-alt fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Camp Map</h2>
+        </li>
+        <!--
+        Troop Guidebook Tile
+         * The PDF Viewer is adapted from the Mozilla Foundation PDF.js platform. Changes to the original file
+           are listed in the header of /resources/web/viewer.html
+         * The source code can be found here: https://github.com/mozilla/pdf.js
+        -->
+        <li id="guidebook" class="flex-item" onclick="location.href='resources/web/viewer.html'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-info fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Guidebook</h2>
+        </li>
+        <!--Installer Button-->
+        <li id="installBtn" class="flex-item" style="display: none; cursor: pointer; background-color: white; ">
+          <div style="text-align: center;"><a id="installIcon" class="fas fa-download fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Install App</h2>
+        </li>
+      </ul>
+    </div>
+    <!--Footer is only kept because of a weird bug with flexbox CSS. I'm trying to find a better solution-->
+    <footer></footer>
+
+    <script>
+      /**
+       * Attach service worker to application when page is loaded.
+       */
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js')
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      }
+      /**
+       * We first check if the device is offline. If true, hide the page elements
+       * that do not function offline, and tell the user they are offline.
+       */
+      if(!navigator.onLine) {
+        document.getElementById('offlineBanner').style.display = 'block';
+        document.getElementById('areaEvents').style.display = 'none';
+        document.getElementById('adultSignIn').style.display = 'none';
+        document.getElementById('sendPhotos').style.display = 'none';
+        document.getElementById('campSurvey').style.display = 'none';
+        document.getElementById('campMap').style.display = 'none';
+      }
+
+      /**
+       * Check if the device is running iOS. iOS does not fully support PWA's so
+       * we have to inform the user on how to install the app manually.
+       */
+      const isIos = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return /iphone|ipad|ipod/.test( userAgent );
+      }
+      //Check if the device is running the iOS app instead of on the web.
+      const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+      //Checks if we should show the install button for iOS, and creates a listener for it.
+      if (isIos() && !isInStandaloneMode()) {
+        document.getElementById('installBtn').addEventListener('click', event => {
+            alert('To install this app, click on the share button, then scroll down till you see the Add to Home Screen option.' +
+                    ' Click that, then click add to install the application.');
+        });
+        document.getElementById('installIcon').className = 'far fa-share-square fa-5x'
+        document.getElementById('installBtn').style.display = 'block';
+      }
+      /**
+       * If the device is not an iOS device, check if we can prompt the user to
+       * install the PWA normally.
+       */
+      else {
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', event => {
+
+        //Stash the event so it can be triggered later.
+        deferredPrompt = event;
+
+        //Attach the install prompt to a user gesture
+        document.getElementById('installBtn').addEventListener('click', event => {
+
+          //Show the prompt
+          deferredPrompt.prompt();
+
+          //Wait for the user to respond to the prompt.
+          deferredPrompt.userChoice.then((choiceResult) => {deferredPrompt = null;});
+        });
+
+        //Show install button on screen in case the prompt did not work or was dismissed by the user.
+        document.getElementById('installBtn').style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>
