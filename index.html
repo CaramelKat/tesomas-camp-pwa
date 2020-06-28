@@ -31,7 +31,7 @@ This project makes use of the free version of Font Awesome for the icons.
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
   <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
-  <link rel="icon" sizes="192x192" href="icon-192x192.png">
+  <link rel="icon" sizes="192x192" href="/images/touch/icon-192x192.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
   <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
   <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
@@ -58,9 +58,9 @@ This project makes use of the free version of Font Awesome for the icons.
       <!--Main Tiles Wrapper-->
       <ul class="flex-container wrap center">
         <!--Area Events Tile-->
-        <li id="areaEvents" class="flex-item" onclick="location.href='http://calendar.google.com/calendar/embed?src=samoset.org_aidmtv7tu52qpbs0cinfmmqeik@group.calendar.google.com&amp;mode=agenda'" style="cursor: pointer;">
+        <li id="areaEvents" class="flex-item" onclick="location.href='/areaEvents.html'" style="cursor: pointer;">
           <div style="text-align: center;"><a class="fas fa-calendar-week fa-5x" style="color:#003F87;"></a></div><br>
-          <h2 style="text-align: center;">Area Events</h2>
+          <h2 style="text-align: center;">Circle Schedules</h2>
         </li>
         <!--Firewood Order Tile-->
         <li id="firewoodOrder"  class="flex-item" onclick="location.href='tel:7153653111'" style="cursor: pointer;">
@@ -68,10 +68,10 @@ This project makes use of the free version of Font Awesome for the icons.
           <h2 style="text-align: center;">Firewood</h2>
         </li>
         <!--Adult Leader Sign In/Out Tile-->
-        <li id="adultSignIn"  class="flex-item" onclick="location.href='https://airtable.com/shrGvS97UPadx4sSi'" style="cursor: pointer;">
+        <!--<li id="adultSignIn"  class="flex-item" onclick="location.href='https://airtable.com/shrGvS97UPadx4sSi'" style="cursor: pointer;">
           <div style="text-align: center;"><a class="far fa-clipboard fa-5x" style="color:#003F87;"></a></div><br>
           <h2 style="text-align: center;">Adult Leader Sign In & Out</h2>
-        </li>
+        </li>-->
         <!--Submit Photos Tile-->
         <li id="sendPhotos"  class="flex-item" onclick="location.href='mailto:photos@campingisking.com'" style="cursor: pointer;">
           <div style="text-align: center;"><a class="fas fa-photo-video fa-5x" style="color:#003F87;"></a></div><br>
@@ -93,14 +93,40 @@ This project makes use of the free version of Font Awesome for the icons.
            are listed in the header of /resources/web/viewer.html
          * The source code can be found here: https://github.com/mozilla/pdf.js
         -->
-        <li id="guidebook" class="flex-item" onclick="location.href='resources/web/viewer.html'" style="cursor: pointer;">
+        <li id="guidebook" class="flex-item" onclick="location.href='resources/web/viewer.html?file=2020_TSC_Guidebook_COVID.pdf'" style="cursor: pointer;">
           <div style="text-align: center;"><a class="fas fa-info fa-5x" style="color:#003F87;"></a></div><br>
           <h2 style="text-align: center;">Guidebook</h2>
+        </li>
+        <!--
+        FAQ Tile
+         * The PDF Viewer is adapted from the Mozilla Foundation PDF.js platform. Changes to the original file
+           are listed in the header of /resources/web/viewer.html
+         * The source code can be found here: https://github.com/mozilla/pdf.js
+        -->
+        <li id="FAQ" class="flex-item" onclick="location.href='resources/web/viewer.html?file=FAQs_Camp_2020.pdf'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="far fa-question-circle fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Frequently Asked Questions</h2>
+        </li>
+        <!--
+        Pre-Camp Checklist Tile
+         * The PDF Viewer is adapted from the Mozilla Foundation PDF.js platform. Changes to the original file
+           are listed in the header of /resources/web/viewer.html
+         * The source code can be found here: https://github.com/mozilla/pdf.js
+        -->
+        <li id="health_check" class="flex-item" onclick="location.href='resources/web/viewer.html?file=Camp_Medical_Screening_Checklist.pdf'" style="cursor: pointer;">
+          <div style="text-align: center;"><a class="fas fa-file-medical fa-5x" style="color:#003F87;"></a></div><br>
+          <h2 style="text-align: center;">Pre-Camp Screening Checklist</h2>
         </li>
         <!--Installer Button-->
         <li id="installBtn" class="flex-item" style="display: none; cursor: pointer; background-color: white; ">
           <div style="text-align: center;"><a id="installIcon" class="fas fa-download fa-5x" style="color:#003F87;"></a></div><br>
           <h2 style="text-align: center;">Install App</h2>
+        </li>
+      </ul>
+      <!--Questions and Call Banner-->
+      <ul id="questionsBanner" class="flex-container center">
+        <li class="flex-item" onclick="location.href='tel:7153653111'" style="cursor: pointer;">
+          <h2 style="text-align: center;">If you have any other questions, ask your Troop Guide, or click here to call the Program Center</h2>
         </li>
       </ul>
     </div>
@@ -124,9 +150,9 @@ This project makes use of the free version of Font Awesome for the icons.
        * that do not function offline, and tell the user they are offline.
        */
       if(!navigator.onLine) {
-        document.getElementById('offlineBanner').style.display = 'block';
-        document.getElementById('areaEvents').style.display = 'none';
-        document.getElementById('adultSignIn').style.display = 'none';
+        document.getElementById('offlineBanner').style.display = '';
+        //document.getElementById('areaEvents').style.display = 'none';
+        //document.getElementById('adultSignIn').style.display = 'none';
         document.getElementById('sendPhotos').style.display = 'none';
         document.getElementById('campSurvey').style.display = 'none';
         document.getElementById('campMap').style.display = 'none';

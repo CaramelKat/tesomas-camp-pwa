@@ -1,0 +1,105 @@
+<!--
+Tesomas.Camp PWA Rewrite
+
+Written by Jay Poffinbarger
+
+This project makes use of the free version of Font Awesome for the icons.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="Description" content="Tesomas.Camp supplies quick access to information and tools that will make
+                                    your visit to Camp Tesomas as fun and engaging as possible.">
+    <script src="https://kit.fontawesome.com/1b88120e53.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+
+    <title>Tesomas Scout Camp</title>
+    <!--Import CSS and Web Manifest File-->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="manifest" href="manifest.json">
+
+    <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Tesomas Scout Camp">
+    <meta name="apple-mobile-web-app-title" content="Tesomas Scout Camp">
+    <meta name="theme-color" content="#003F87">
+    <meta name="msapplication-navbutton-color" content="#003F87">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+</head>
+
+<body>
+<header>
+    <h1>Camp Tesomas</h1>
+</header>
+<!--Tile Elements Div-->
+<div>
+    <!--Banner to show when device is offline-->
+    <ul id="offlineBanner" class="flex-container center" style="display: none">
+        <li class="flex-item">
+            <div style="text-align: center;"><a class="fas fas fa-exclamation-triangle fa-5x" style="color:#003F87;"></a></div><br>
+            <h2 style="text-align: center;">Your Offline</h2>
+            <h3 style="text-align: center;">Connect to the internet to use all of the apps features</h3>
+        </li>
+    </ul>
+    <ul id="infoBanner" class="flex-container center">
+        <li class="flex-item">
+            <h2 style="text-align: center;">Circle Schedules</h2>
+            <h3 style="text-align: center;">Your schedule matches the color of your wristband, if you have any other questions ask your troop quide.</h3>
+        </li>
+    </ul>
+    <div class="flex-stack">
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Aqua_Circle.pdf'">Aqua Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Black_Circle.pdf'">Black Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Blue_Circle.pdf'">Blue Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Green_Circle.pdf'">Green Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Orange_Circle.pdf'">Orange Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Pink_Circle.pdf'">Pink Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Purple_Circle.pdf'">Purple Schedule</Button>
+        <Button class="circle-schedules" onclick="location.href='resources/web/viewer.html?file=Red_Circle.pdf'">Red Schedule</Button>
+    </div>
+
+</div>
+<!--Footer is only kept because of a weird bug with flexbox CSS. I'm trying to find a better solution-->
+<footer></footer>
+
+<script>
+    /**
+     * Attach service worker to application when page is loaded.
+     */
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('service-worker.js')
+                .catch(err => {
+                    console.error(err);
+                });
+        });
+    }
+    /**
+     * We first check if the device is offline. If true, hide the page elements
+     * that do not function offline, and tell the user they are offline.
+     */
+    /*if(!navigator.onLine) {
+        document.getElementById('offlineBanner').style.display = '';
+        document.getElementById('areaEvents').style.display = 'none';
+        document.getElementById('adultSignIn').style.display = 'none';
+        document.getElementById('sendPhotos').style.display = 'none';
+        document.getElementById('campSurvey').style.display = 'none';
+        document.getElementById('campMap').style.display = 'none';
+    }*/
+</script>
+</body>
+</html>

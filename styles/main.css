@@ -1,9 +1,9 @@
 html {
-  background-color: #003F87;
+  /* background-color: #003F87; */
 }
 body {
   align-items: center;
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   flex-direction: column;
   font-family: 'Roboto','Helvetica','Arial',sans-serif;
@@ -95,6 +95,34 @@ button {
   justify-content: center;
 }
 
+.flex-stack {
+   display: flex; /* establish flex container */
+  flex-direction: column; /* make main-axis vertical */
+  justify-content: center; /* align items vertically, in this case */
+  align-items: center; /* align items horizontally, in this case */
+  /* height: 300px; */ /* for demo purposes */
+  /* border: 1px solid black; */ /* for demo purposes */
+  /* background-color: #eee; */ /* for demo purposes */
+}
+
+.stack-item {
+  width: 45vh;
+  margin: 5px;
+  /* text-align: center; */
+}
+
+table,
+td {
+  text-align: center;
+  border: 1px solid #333;
+}
+thead,
+tfoot {
+  background-color: #003F87;
+  color: white;
+}
+
+
 h2 {
   margin: 10px;
 }
@@ -132,4 +160,28 @@ footer {
   height: auto;
   padding: 0;
   width: 100%;
+}
+
+.circle-schedules {
+  border-radius: 7px;
+  margin: 15px;
+  cursor: pointer;
+}
+
+details[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+details summary {
+  border-radius: 7px;
+  padding: 10px 20px;
+  background: #003F87;
+  color: white;
+  outline: none;
+}
+
+details .text {
+  margin: 0;
+  padding: 15px 20px;
 }
