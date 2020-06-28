@@ -113,7 +113,7 @@ This project makes use of the free version of Font Awesome for the icons.
            are listed in the header of /resources/web/viewer.html
          * The source code can be found here: https://github.com/mozilla/pdf.js
         -->
-        <li id="health_check" class="flex-item" onclick="location.href='resources/web/viewer.html?file=Camp_Medical_Screening_Checklist.pdf'" style="cursor: pointer;">
+        <li id="health_check" class="flex-item" onclick="location.href='resources/web/Camp_Medical_Screening_Checklist.pdf'" style="cursor: pointer;">
           <div style="text-align: center;"><a class="fas fa-file-medical fa-5x" style="color:#003F87;"></a></div><br>
           <h2 style="text-align: center;">Pre-Camp Screening Checklist</h2>
         </li>
@@ -172,7 +172,7 @@ This project makes use of the free version of Font Awesome for the icons.
       //Checks if we should show the install button for iOS, and creates a listener for it.
       if (isIos() && !isInStandaloneMode()) {
         document.getElementById('installBtn').addEventListener('click', event => {
-            alert('To install this app, click on the share button, then scroll down till you see the Add to Home Screen option.' +
+            alert('To install this app, open Safari, click on the share button, then scroll down till you see the "Add to Home Screen" option.' +
                     ' Click that, then click add to install the application.');
         });
         document.getElementById('installIcon').className = 'far fa-share-square fa-5x'
