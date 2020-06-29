@@ -1,4 +1,4 @@
-const cacheName = 'cache-v1';
+const cacheName = 'Tesomas.Camp v1.0.12';
 const precacheResources = [
     '/',
     'index.html',
@@ -12,9 +12,6 @@ const precacheResources = [
     '/resources/web/2020_TSC_Guidebook_COVID.pdf',
     '/resources/web/FAQs_Camp_2020.pdf',
     '/resources/web/Camp_Medical_Screening_Checklist.pdf',
-    '/resources/web/viewer.html?file=2020_TSC_Guidebook_COVID.pdf',
-    '/resources/web/viewer.html?file=FAQs_Camp_2020.pdf',
-    '/resources/web/viewer.html?file=Camp_Medical_Screening_Checklist.pdf',
     '/areaEvents.html',
     '/resources/web/Aqua_Circle.pdf',
     '/resources/web/Black_Circle.pdf',
@@ -24,14 +21,6 @@ const precacheResources = [
     '/resources/web/Pink_Circle.pdf',
     '/resources/web/Purple_Circle.pdf',
     '/resources/web/Red_Circle.pdf',
-    '/resources/web/viewer.html?file=Aqua_Circle.pdf',
-    '/resources/web/viewer.html?file=Black_Circle.pdf',
-    '/resources/web/viewer.html?file=Blue_Circle.pdf',
-    '/resources/web/viewer.html?file=Green_Circle.pdf',
-    '/resources/web/viewer.html?file=Orange_Circle.pdf',
-    '/resources/web/viewer.html?file=Pink_Circle.pdf',
-    '/resources/web/viewer.html?file=Purple_Circle.pdf',
-    '/resources/web/viewer.html?file=Red_Circle.pdf',
     '/styles/main.css',
     'https://kit.fontawesome.com/1b88120e53.js',
     'https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css',
@@ -58,5 +47,23 @@ self.addEventListener('fetch', event => {
         }
         return fetch(event.request);
       })
+    );
+});
+
+self.addEventListener('activate', event => {
+    console.log('Activating new service worker...');
+
+    const cacheWhitelist = [cacheName];
+
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
     );
 });

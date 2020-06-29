@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 Copyright 2012 Mozilla Foundation
 
@@ -33,18 +33,34 @@ Changes to the file:
     <meta name="google" content="notranslate">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PDF.js viewer</title>
-
-
+    <script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="hammer.js"></script>
+    <script type="text/javascript" src="jquery.hammer.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var HammerPinch = function (ev) {
+          if (ev.scale > 1){
+            PDFView.zoomIn();
+          } else {
+            PDFView.zoomOut();
+          }
+        };
+        $('#viewer').hammer(
+                {
+                  prevent_default: false, //allow native vertical scroll of the pdf
+                  drag : false,  //prevent hammer js hijack the veritcal scroll touch event
+                  swipe : false,
+                  tap : false,
+                  hold : false
+                }
+        ).bind('transform', HammerPinch);
+      });
+    </script>
     <link rel="stylesheet" href="viewer.css">
-
-
-<!-- This snippet is used in production (included from viewer.html) -->
-<link rel="resource" type="application/l10n" href="locale/locale.properties">
-<script src="../build/pdf.js"></script>
-
-
+    <!-- This snippet is used in production (included from viewer.html) -->
+    <link rel="resource" type="application/l10n" href="locale/locale.properties">
+    <script src="../build/pdf.js"></script>
     <script src="viewer.js"></script>
-
   </head>
 
   <body tabindex="1" class="loadingInProgress">
