@@ -1,14 +1,7 @@
-const cacheName = 'Tesomas.Camp v1.0.15';
+const cacheName = 'Tesomas.Camp v1.0.16';
 const precacheResources = [
     '/',
     'index.html',
-    '/resources/web/viewer.html',
-    '/resources/web/viewer.css',
-    '/resources/build/pdf.js',
-    '/resources/web/viewer.js',
-    'resources/web/images/shadow.png',
-    '/resources/web/images/loading-icon.gif',
-    '/resources/build/pdf.worker.js',
     '/resources/web/2020_TSC_Guidebook_COVID.pdf',
     '/resources/web/FAQs_Camp_2020.pdf',
     '/resources/web/Camp_Medical_Screening_Checklist.pdf',
@@ -22,6 +15,7 @@ const precacheResources = [
     '/resources/web/Purple_Circle.pdf',
     '/resources/web/Red_Circle.pdf',
     '/styles/main.css',
+    '/images/waldo_banner.png',
     'https://kit.fontawesome.com/1b88120e53.js',
     'https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css',
     'https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css',
