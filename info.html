@@ -1,0 +1,158 @@
+<!--
+Tesomas.Camp PWA Rewrite
+
+Written by Jay Poffinbarger
+
+This project makes use of the free version of Font Awesome for the icons.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="Description" content="Tesomas.Camp supplies quick access to information and tools that will make
+                                    your visit to Camp Tesomas as fun and engaging as possible.">
+    <script src="https://kit.fontawesome.com/1b88120e53.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+
+    <title>Tesomas Scout Camp</title>
+    <!--Import CSS and Web Manifest File-->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Tesomas Scout Camp">
+    <meta name="apple-mobile-web-app-title" content="Tesomas Scout Camp">
+    <meta name="theme-color" content="#517799">
+    <meta name="msapplication-navbutton-color" content="#517799">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+</head>
+
+<body>
+<header>
+    <i class="fas fa-chevron-left fa-2x" onclick="history.back()"></i>
+    <h1>Information</h1>
+</header>
+<!--Tile Elements Wrapper-->
+<div class="tile-wrapper">
+    <!--Main Tiles Wrapper-->
+    <ul>
+        <!--Guidebook Tile-->
+        <li id="guidebook" onclick="location.href='/resources/2021_TSC_Guidebook.pdf'">
+            <h2>Guidebook</h2>
+            <div><a class="fas fa-book fa-5x"></a></div><br>
+        </li>
+        <!--Menu Tile-->
+        <li id="menu" onclick="alert('Coming Soon')">
+            <h2>Dining Menu</h2>
+            <div><a class="fas fa-drumstick-bite fa-5x"></a></div><br>
+        </li>
+        <!--Area Activities Tile-->
+        <li id="area-activities" onclick="location.href='areas.html'">
+            <h2>Program Areas</h2>
+            <div><a class="fas fa-chalkboard-teacher fa-5x"></a></div><br>
+        </li>
+        <!--Merit Badge Tile-->
+        <li id="merit-badge-schedule" onclick="location.href='/resources/TSC Advnacement Schedule 2021.pdf'">
+            <h2>Merit Badge Schedule</h2>
+            <div><a class="fas fa-calendar-week fa-5x"></a></div><br>
+        </li>
+        <!--Eagle Quest Tile-->
+        <li id="eagle-quest-schedule" onclick="location.href='/resources/Eagle Quest Schedule 2021.pdf'">
+            <h2>Eagle Quest Schedule</h2>
+            <div><a class="fas fa-feather-alt fa-5x"></a></div><br>
+        </li>
+    </ul>
+</div>
+<!--Bottom Image-->
+<footer></footer>
+<script>
+    /**
+     * Attach service worker to application when page is loaded.
+     */
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('service-worker.js')
+                .catch(err => {
+                    console.error(err);
+                });
+        });
+    }
+    /**
+     * We first check if the device is offline. If true, hide the page elements
+     * that do not function offline, and tell the user they are offline.
+     */
+    if(!navigator.onLine) {
+        document.getElementById('offlineBanner').style.display = '';
+        //document.getElementById('areaEvents').style.display = 'none';
+        //document.getElementById('adultSignIn').style.display = 'none';
+        document.getElementById('sendPhotos').style.display = 'none';
+        document.getElementById('quest').style.display = 'none';
+        document.getElementById('campSurvey').style.display = 'none';
+        document.getElementById('campMap').style.display = 'none';
+        document.getElementById('shopping').style.display = 'none';
+    }
+
+    /**
+     * Check if the device is running iOS. iOS does not fully support PWA's so
+     * we have to inform the user on how to install the app manually.
+     */
+    const isIos = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return /iphone|ipad|ipod/.test( userAgent );
+    }
+    //Check if the device is running the iOS app instead of on the web.
+    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+    //Checks if we should show the install button for iOS, and creates a listener for it.
+    if (isIos() && !isInStandaloneMode()) {
+        document.getElementById('installBtn').addEventListener('click', event => {
+            alert('To install this app, open Safari, click on the share button, then scroll down till you see the "Add to Home Screen" option.' +
+                ' Click that, then click add to install the application.');
+        });
+        document.getElementById('installIcon').className = 'far fa-share-square fa-5x'
+        document.getElementById('installBtn').style.display = 'flex';
+    }
+    /**
+     * If the device is not an iOS device, check if we can prompt the user to
+     * install the PWA normally.
+     */
+    else {
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', event => {
+
+            //Stash the event so it can be triggered later.
+            deferredPrompt = event;
+
+            //Attach the install prompt to a user gesture
+            document.getElementById('installBtn').addEventListener('click', event => {
+
+                //Show the prompt
+                deferredPrompt.prompt();
+
+                //Wait for the user to respond to the prompt.
+                deferredPrompt.userChoice.then((choiceResult) => {deferredPrompt = null;});
+            });
+
+            //Show install button on screen in case the prompt did not work or was dismissed by the user.
+            document.getElementById('installBtn').style.display = 'flex';
+        });
+    }
+</script>
+</body>
+</html>

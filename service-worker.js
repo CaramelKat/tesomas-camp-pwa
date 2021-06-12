@@ -1,27 +1,21 @@
-const cacheName = 'Tesomas.Camp v1.0.18';
+const cacheName = 'Tesomas.Camp v2.0.10 BETA';
 const precacheResources = [
-    '/',
-    'index.html',
-    '/resources/web/2020_TSC_Guidebook_COVID.pdf',
-    '/resources/web/FAQs_Camp_2020.pdf',
-    '/resources/web/Camp_Medical_Screening_Checklist.pdf',
-    '/areaEvents.html',
-    '/resources/web/Aqua_Circle.pdf',
-    '/resources/web/Black_Circle.pdf',
-    '/resources/web/Blue_Circle.pdf',
-    '/resources/web/Green_Circle.pdf',
-    '/resources/web/Orange_Circle.pdf',
-    '/resources/web/Pink_Circle.pdf',
-    '/resources/web/Purple_Circle.pdf',
-    '/resources/web/Red_Circle.pdf',
-    '/styles/main.css',
-    '/images/waldo_banner.png',
+    '/index.html',
+    '/areas.html',
+    '/info.html',
+    '/social.html',
+    '/store.html',
+    '/css/main.css',
+    '/css/waltographUI.ttf',
+    '/images/background-dark.png',
+    '/images/background-light.png',
+    '/images/favicon.ico',
+    '/resources/2021_TSC_Guidebook.pdf',
+    '/resources/Eagle Quest Schedule 2021.pdf',
+    '/resources/TSC Advnacement Schedule 2021.pdf',
     'https://kit.fontawesome.com/1b88120e53.js',
-    'https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css',
-    'https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css',
-    'https://kit-free.fontawesome.com/releases/latest/css/free.min.css',
-    'https://kit-free.fontawesome.com/releases/latest/webfonts/free-fa-solid-900.woff2',
-    'https://kit-free.fontawesome.com/releases/latest/webfonts/free-fa-regular-400.woff2'
+    'https://ka-f.fontawesome.com/releases/v5.15.3/css/free.min.css?token=1b88120e53',
+    'https://ka-f.fontawesome.com/releases/v5.15.3/css/free-v4-shims.min.css?token=1b88120e53',
 ];
 
 self.addEventListener('install', event => {

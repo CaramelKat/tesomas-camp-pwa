@@ -1,0 +1,142 @@
+/* Themes */
+:root {
+  --body: #517799;
+  --content: white;
+
+  --text: #191919;
+  --text-secondary: #4c4c4c;
+
+  --hover: #eee;
+  --shadow: rgba(0, 0, 0, 0.15);
+  --border: #d3d3d3;
+  --input-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body: #392d2d;
+    --content: #c87c4B;
+
+    --text: white;
+    --text-secondary: #8f8e8e;
+
+    --hover: rgba(255, 255, 255, 0.1);
+    --shadow: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+    --input-bg: #191919;
+  }
+
+  footer {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 20%,
+    var(--body)), url("/images/background-dark.png") !important;
+  }
+}
+
+/* Disney font for header*/
+@font-face {
+  font-family: WaltographUI;
+  src: url(waltographUI.ttf);
+}
+
+body {
+  align-items: center;
+  background: var(--body);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--content);
+  border-bottom: 12px solid #1b1b1b;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  display: flex;
+  float: right;
+  justify-content: center;
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+}
+
+header > h1 {
+  Color: var(--text);
+  font-family: WaltographUI, serif;
+}
+
+header > i {
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 60px;
+  position: absolute;
+  left: 15px;
+}
+
+.tile-wrapper {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+
+.tile-wrapper > ul {
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.tile-wrapper > ul > li {
+  cursor: pointer;
+  background-color: var(--content);
+  border-radius: 30px;
+  height: 100px;
+  padding: 0;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.tile-wrapper > ul > li > h2 {
+  color: var(--text);
+  width: 175px;
+  margin-right: 15px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.tile-wrapper > ul > li > div {
+  margin: 30px;
+}
+
+.tile-wrapper > ul > li > div > a {
+  color: var(--body);
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 381px;
+  background-size: cover;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0) 20%,
+  var(--body)), url("/images/background-light.png");
+  text-align: center;
+  z-index: 0;
+}

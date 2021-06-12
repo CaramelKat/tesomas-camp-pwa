@@ -1,0 +1,193 @@
+<!--
+Tesomas.Camp PWA Rewrite
+
+Written by Jay Poffinbarger
+
+This project makes use of the free version of Font Awesome for the icons.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="Description" content="Tesomas.Camp supplies quick access to information and tools that will make
+                                    your visit to Camp Tesomas as fun and engaging as possible.">
+    <script src="https://kit.fontawesome.com/1b88120e53.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+
+    <title>Tesomas Scout Camp</title>
+    <!--Import CSS and Web Manifest File-->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Tesomas Scout Camp">
+    <meta name="apple-mobile-web-app-title" content="Tesomas Scout Camp">
+    <meta name="theme-color" content="#517799">
+    <meta name="msapplication-navbutton-color" content="#517799">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+</head>
+
+<body>
+<header>
+    <i class="fas fa-chevron-left fa-2x" onclick="history.back()"></i>
+    <h1>Program Areas</h1>
+</header>
+<!--Tile Elements Wrapper-->
+<div class="tile-wrapper">
+    <!--Main Tiles Wrapper-->
+    <ul>
+        <!--biztech Tile-->
+        <li id="biztech">
+            <h2>Business & Technology</h2>
+            <div><a class="fas fa-laptop fa-5x"></a></div><br>
+        </li>
+        <!--cope Tile-->
+        <li id="copeclimb">
+            <h2>COPE & Climbing</h2>
+            <div><a class="fas fa-mountain fa-5x"></a></div><br>
+        </li>
+        <!--eagle quest Tile-->
+        <li id="eaglequest">
+            <h2>Eagle Quest</h2>
+            <div><a class="fas fa-feather-alt fa-5x"></a></div><br>
+        </li>
+        <!--ecocon Tile-->
+        <li id="ecocon">
+            <h2>Ecology & Conservation</h2>
+            <div><a class="fas fa-tree fa-5x"></a></div><br>
+        </li>
+        <!--art town Tile-->
+        <li id="art-town">
+            <h2>Handicraft</h2>
+            <div><a class="fas fa-paint-brush fa-5x"></a></div><br>
+        </li>
+        <!--huck's waterfront Tile-->
+        <li id="hucks-waterfront">
+            <h2>Huck Finn's Waterfront</h2>
+            <div><a class="fas fa-swimmer fa-5x"></a></div><br>
+        </li>
+        <!--Kiwani's Chapel Tile-->
+        <li id="chapel">
+            <h2>Kiwani's Chapel</h2>
+            <div><a class="fas fa-cross fa-5x"></a></div><br>
+        </li>
+        <!--Personal Wellness Tile-->
+        <li id="personal-wellness">
+            <h2>Personal Wellness</h2>
+            <div><a class="fas fa-futbol fa-5x"></a></div><br>
+        </li>
+        <!--Scout Craft Tile-->
+        <li id="scout-craft">
+            <h2>Scout Craft</h2>
+            <div><a class="far fa-compass fa-5x"></a></div><br>
+        </li>
+        <!--Shooting Sports Tile-->
+        <li id="shooting-sports">
+            <h2>Shooting Sports</h2>
+            <div><a class="fas fa-bullseye fa-5x"></a></div><br>
+        </li>
+        <!--tesomas waterfront Tile-->
+        <li id="tesomas-waterfront">
+            <h2>Tesomas Waterfront</h2>
+            <div><a class="fas fa-swimmer fa-5x"></a></div><br>
+        </li>
+        <!--OA Tile-->
+        <li id="OA">
+            <h2>Order of the Arrow</h2>
+            <div><a class="fas fa-handshake fa-5x"></a></div><br>
+        </li>
+    </ul>
+</div>
+<!--Bottom Image-->
+<footer></footer>
+<script>
+    /**
+     * Attach service worker to application when page is loaded.
+     */
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('service-worker.js')
+                .catch(err => {
+                    console.error(err);
+                });
+        });
+    }
+    /**
+     * We first check if the device is offline. If true, hide the page elements
+     * that do not function offline, and tell the user they are offline.
+     */
+    if(!navigator.onLine) {
+        document.getElementById('offlineBanner').style.display = '';
+        //document.getElementById('areaEvents').style.display = 'none';
+        //document.getElementById('adultSignIn').style.display = 'none';
+        document.getElementById('sendPhotos').style.display = 'none';
+        document.getElementById('quest').style.display = 'none';
+        document.getElementById('campSurvey').style.display = 'none';
+        document.getElementById('campMap').style.display = 'none';
+        document.getElementById('shopping').style.display = 'none';
+    }
+
+    /**
+     * Check if the device is running iOS. iOS does not fully support PWA's so
+     * we have to inform the user on how to install the app manually.
+     */
+    const isIos = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return /iphone|ipad|ipod/.test( userAgent );
+    }
+    //Check if the device is running the iOS app instead of on the web.
+    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+    //Checks if we should show the install button for iOS, and creates a listener for it.
+    if (isIos() && !isInStandaloneMode()) {
+        document.getElementById('installBtn').addEventListener('click', event => {
+            alert('To install this app, open Safari, click on the share button, then scroll down till you see the "Add to Home Screen" option.' +
+                ' Click that, then click add to install the application.');
+        });
+        document.getElementById('installIcon').className = 'far fa-share-square fa-5x'
+        document.getElementById('installBtn').style.display = 'flex';
+    }
+    /**
+     * If the device is not an iOS device, check if we can prompt the user to
+     * install the PWA normally.
+     */
+    else {
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', event => {
+
+            //Stash the event so it can be triggered later.
+            deferredPrompt = event;
+
+            //Attach the install prompt to a user gesture
+            document.getElementById('installBtn').addEventListener('click', event => {
+
+                //Show the prompt
+                deferredPrompt.prompt();
+
+                //Wait for the user to respond to the prompt.
+                deferredPrompt.userChoice.then((choiceResult) => {deferredPrompt = null;});
+            });
+
+            //Show install button on screen in case the prompt did not work or was dismissed by the user.
+            document.getElementById('installBtn').style.display = 'flex';
+        });
+    }
+</script>
+</body>
+</html>
