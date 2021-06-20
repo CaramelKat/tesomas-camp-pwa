@@ -111,6 +111,40 @@ This project makes use of the free version of Font Awesome for the icons.
   <footer></footer>
   <script>
     /**
+     *  Check for updates and prompt the user to close the app
+     */
+    window.isUpdateAvailable = new Promise(function(resolve, reject) {
+      // lazy way of disabling service workers while developing
+      if ('serviceWorker' in navigator) {
+        // register service worker file
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => {
+            reg.onupdatefound = () => {
+              const installingWorker = reg.installing;
+              installingWorker.onstatechange = () => {
+                switch (installingWorker.state) {
+                  case 'installed':
+                    if (navigator.serviceWorker.controller) {
+                      // new update available
+                      resolve(true);
+                    } else {
+                      // no update available
+                      resolve(false);
+                    }
+                    break;
+                }
+              };
+            };
+          }).catch(err => console.error('[SW ERROR]', err));
+        }
+    });
+
+    window['isUpdateAvailable'].then(isAvailable => {
+      if (isAvailable) {
+          alert('New Update available! Reload the app to see the new changes.');
+      }
+    });
+    /**
      * Attach service worker to application when page is loaded.
      */
     if ('serviceWorker' in navigator) {

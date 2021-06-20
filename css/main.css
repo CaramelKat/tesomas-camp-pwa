@@ -128,6 +128,46 @@ header > i {
   justify-content: center;
 }
 
+.area-wrapper > li {
+  flex-direction: column !important;
+  height: fit-content !important;
+}
+
+.area-wrapper {
+  max-width: 700px;
+}
+
+.area-wrapper > li > h3, .area-wrapper > li > h4 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.area-wrapper > li > p {
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.area-wrapper > div {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.area-wrapper > div > img {
+  margin-right: 15px;
+  width: 200px;
+  max-height: 200px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.area-wrapper > div > img:last-child {
+  margin-right: 0 !important;
+}
+
 footer {
   position: fixed;
   left: 0;
