@@ -1,4 +1,4 @@
-const cacheName = 'Tesomas.Camp v2.0.14 BETA';
+const cacheName = 'Tesomas.Camp v2.0.15';
 const precacheResources = [
     '/index.html',
     '/areas.html',
