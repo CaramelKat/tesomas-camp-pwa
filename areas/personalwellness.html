@@ -16,10 +16,10 @@ This project makes use of the free version of Font Awesome for the icons.
 
     <title>Tesomas Scout Camp</title>
     <!--Import CSS and Web Manifest File-->
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
     <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
     <meta name="mobile-web-app-capable" content="yes">
@@ -46,71 +46,28 @@ This project makes use of the free version of Font Awesome for the icons.
 <body>
 <header>
     <i class="fas fa-chevron-left fa-2x" onclick="history.back()"></i>
-    <h1>Program Areas</h1>
+    <h1>Personal Wellness</h1>
 </header>
 <!--Tile Elements Wrapper-->
 <div class="tile-wrapper">
     <!--Main Tiles Wrapper-->
-    <ul>
-        <!--biztech Tile-->
-        <li id="biztech" onclick="location.href='/areas/biztech.html'">
-            <h2>Business & Technology</h2>
-            <div><a class="fas fa-laptop fa-5x"></a></div><br>
+    <ul class="area-wrapper">
+        <div>
+            <img src="/images/area-test.png">
+            <img src="/images/area-test2.png">
+            <img src="/images/area-test2.png">
+            <img src="/images/area-test.png">
+        </div>
+        <li id="description">
+            <h3>Description</h3>
+            <p>Zuko and The Fire King stole Appa to make it easier to burn down the bog to turn it into a
+                strip mall. So Aang Finn and Jake have to save Appa and protect our precious wetland.
+            </p>
         </li>
-        <!--cope Tile-->
-        <li id="copeclimb" onclick="location.href='/areas/copeclimbing.html'">
-            <h2>COPE & Climbing</h2>
-            <div><a class="fas fa-mountain fa-5x"></a></div><br>
-        </li>
-        <!--eagle quest Tile-->
-        <li id="eaglequest" onclick="location.href='/areas/eaglequest.html'">
-            <h2>Eagle Quest</h2>
-            <div><a class="fas fa-feather-alt fa-5x"></a></div><br>
-        </li>
-        <!--ecocon Tile-->
-        <li id="ecocon" onclick="location.href='/areas/ecocon.html'">
-            <h2>Ecology & Conservation</h2>
-            <div><a class="fas fa-tree fa-5x"></a></div><br>
-        </li>
-        <!--art town Tile-->
-        <li id="art-town" onclick="location.href='/areas/handicraft.html'">
-            <h2>Handicraft</h2>
-            <div><a class="fas fa-paint-brush fa-5x"></a></div><br>
-        </li>
-        <!--huck's waterfront Tile-->
-        <li id="hucks-waterfront" onclick="location.href='/areas/huckfinns.html'">
-            <h2>Huck Finn's Waterfront</h2>
-            <div><a class="fas fa-swimmer fa-5x"></a></div><br>
-        </li>
-        <!--Kiwani's Chapel Tile-->
-        <li id="chapel" onclick="location.href='/areas/chapel.html'">
-            <h2>Kiwani's Chapel</h2>
-            <div><a class="fas fa-cross fa-5x"></a></div><br>
-        </li>
-        <!--Personal Wellness Tile-->
-        <li id="personal-wellness" onclick="location.href='/areas/personalwellness.html'">
-            <h2>Personal Wellness</h2>
-            <div><a class="fas fa-futbol fa-5x"></a></div><br>
-        </li>
-        <!--Scout Craft Tile-->
-        <li id="scout-craft" onclick="location.href='/areas/scoutcraft.html'">
-            <h2>Scout Craft</h2>
-            <div><a class="far fa-compass fa-5x"></a></div><br>
-        </li>
-        <!--Shooting Sports Tile-->
-        <li id="shooting-sports" onclick="location.href='/areas/shootingsports.html'">
-            <h2>Shooting Sports</h2>
-            <div><a class="fas fa-bullseye fa-5x"></a></div><br>
-        </li>
-        <!--tesomas waterfront Tile-->
-        <li id="tesomas-waterfront" onclick="location.href='/areas/tesomaswaterfront.html'">
-            <h2>Tesomas Waterfront</h2>
-            <div><a class="fas fa-swimmer fa-5x"></a></div><br>
-        </li>
-        <!--OA Tile-->
-        <li id="OA" onclick="location.href='/areas/oa.html'">
-            <h2>Order of the Arrow</h2>
-            <div><a class="fas fa-handshake fa-5x"></a></div><br>
+        <li id="events">
+            <h3>Free Time Events</h3>
+            <p>Ultimate Frisbee!
+            </p>
         </li>
     </ul>
 </div>
