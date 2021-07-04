@@ -1,4 +1,4 @@
-const cacheName = 'Tesomas.Camp v2.0.15';
+const cacheName = 'Tesomas.Camp v2.0.18';
 const precacheResources = [
     '/index.html',
     '/areas.html',
@@ -16,6 +16,7 @@ const precacheResources = [
     '/resources/2021menu.pdf',
     '/resources/Meal A Schedule.pdf',
     '/resources/Meal B Schedule.pdf',
+    '/resources/P3 Schedule.pdf',
     '/resources/mt_sched.pdf',
     'https://kit.fontawesome.com/1b88120e53.js',
     'https://ka-f.fontawesome.com/releases/v5.15.3/css/free.min.css?token=1b88120e53',

@@ -67,6 +67,7 @@ header > h1 {
   font-family: WaltographUI, serif;
   font-size: x-large;
   padding-top: 11px;
+  margin-bottom: 15px;
 }
 
 header > i {
