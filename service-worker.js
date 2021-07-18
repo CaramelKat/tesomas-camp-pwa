@@ -1,4 +1,4 @@
-const cacheName = 'Tesomas.Camp v2.0.21';
+const cacheName = 'Tesomas.Camp v2.0.23';
 const precacheResources = [
     '/index.html',
     '/areas.html',
@@ -12,10 +12,11 @@ const precacheResources = [
     '/images/favicon.ico',
     '/resources/2021_TSC_Guidebook.pdf',
     '/resources/Eagle Quest Schedule 2021.pdf',
-    '/resources/TSC Advnacement Schedule 2021.pdf',
+    '/resources/TSC Advancement Schedule 2021.pdf',
     '/resources/2021menu.pdf',
     '/resources/Meal A Schedule.pdf',
     '/resources/Meal B Schedule.pdf',
+    '/resources/2021 Pd 5 Schedule.pdf',
     '/resources/P3 Schedule.pdf',
     '/resources/mt_sched.pdf',
     'https://kit.fontawesome.com/1b88120e53.js',
@@ -24,12 +25,15 @@ const precacheResources = [
 ];
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(cacheName)
-      .then(cache => {
-        return cache.addAll(precacheResources);
-      })
-  );
+    event.waitUntil(
+        caches.open(cacheName)
+            .then(cache => {
+                return cache.addAll(precacheResources);
+            })
+            .then(() => {
+                return self.skipWaiting();
+            })
+    );
 });
 
 self.addEventListener('fetch', event => {
