@@ -53,67 +53,67 @@ This project makes use of the free version of Font Awesome for the icons.
     <!--Main Tiles Wrapper-->
     <ul>
         <!--leader Tile-->
-        <li id="leader" onclick="location.href='/areas/leadertraining.html'">
+        <li id="leader" onclick="location.href='/areas/leadertraining'">
             <h2>Adult Leader Training</h2>
             <div><a class="fas fa-user-graduate fa-5x"></a></div><br>
         </li>
         <!--biztech Tile-->
-        <li id="biztech" onclick="location.href='/areas/biztech.html'">
+        <li id="biztech" onclick="location.href='/areas/biztech'">
             <h2>Business & Technology</h2>
             <div><a class="fas fa-laptop fa-5x"></a></div><br>
         </li>
         <!--cope Tile-->
-        <li id="copeclimb" onclick="location.href='/areas/copeclimbing.html'">
+        <li id="copeclimb" onclick="location.href='/areas/copeclimbing'">
             <h2>COPE & Climbing</h2>
             <div><a class="fas fa-mountain fa-5x"></a></div><br>
         </li>
         <!--eagle quest Tile-->
-        <li id="eaglequest" onclick="location.href='/areas/eaglequest.html'">
+        <li id="eaglequest" onclick="location.href='/areas/eaglequest'">
             <h2>Eagle Quest</h2>
             <div><a class="fas fa-feather-alt fa-5x"></a></div><br>
         </li>
         <!--ecocon Tile-->
-        <li id="ecocon" onclick="location.href='/areas/ecocon.html'">
+        <li id="ecocon" onclick="location.href='/areas/ecocon'">
             <h2>Ecology & Conservation</h2>
             <div><a class="fas fa-tree fa-5x"></a></div><br>
         </li>
         <!--art town Tile-->
-        <li id="art-town" onclick="location.href='/areas/handicraft.html'">
+        <li id="art-town" onclick="location.href='/areas/handicraft'">
             <h2>Handicraft</h2>
             <div><a class="fas fa-paint-brush fa-5x"></a></div><br>
         </li>
         <!--huck's waterfront Tile-->
-        <li id="hucks-waterfront" onclick="location.href='/areas/huckfinns.html'">
+        <li id="hucks-waterfront" onclick="location.href='/areas/huckfinns'">
             <h2>Huck Finn's Waterfront</h2>
             <div><a class="fas fa-swimmer fa-5x"></a></div><br>
         </li>
         <!--Kiwani's Chapel Tile-->
-        <li id="chapel" onclick="location.href='/areas/chapel.html'">
+        <li id="chapel" onclick="location.href='/areas/chapel'">
             <h2>Kiwani's Chapel</h2>
             <div><a class="fas fa-cross fa-5x"></a></div><br>
         </li>
         <!--Personal Wellness Tile-->
-        <li id="personal-wellness" onclick="location.href='/areas/personalwellness.html'">
+        <li id="personal-wellness" onclick="location.href='/areas/personalwellness'">
             <h2>Personal Wellness</h2>
             <div><a class="fas fa-futbol fa-5x"></a></div><br>
         </li>
         <!--Scout Craft Tile-->
-        <li id="scout-craft" onclick="location.href='/areas/scoutcraft.html'">
+        <li id="scout-craft" onclick="location.href='/areas/scoutcraft'">
             <h2>Scout Craft</h2>
             <div><a class="far fa-compass fa-5x"></a></div><br>
         </li>
         <!--Shooting Sports Tile-->
-        <li id="shooting-sports" onclick="location.href='/areas/shootingsports.html'">
+        <li id="shooting-sports" onclick="location.href='/areas/shootingsports'">
             <h2>Shooting Sports</h2>
             <div><a class="fas fa-bullseye fa-5x"></a></div><br>
         </li>
         <!--tesomas waterfront Tile-->
-        <li id="tesomas-waterfront" onclick="location.href='/areas/tesomaswaterfront.html'">
+        <li id="tesomas-waterfront" onclick="location.href='/areas/tesomaswaterfront'">
             <h2>Tesomas Waterfront</h2>
             <div><a class="fas fa-swimmer fa-5x"></a></div><br>
         </li>
         <!--OA Tile-->
-        <li id="OA" onclick="location.href='/areas/oa.html'">
+        <li id="OA" onclick="location.href='/areas/oa'">
             <h2>Order of the Arrow</h2>
             <div><a class="fas fa-handshake fa-5x"></a></div><br>
         </li>
@@ -122,111 +122,11 @@ This project makes use of the free version of Font Awesome for the icons.
 <!--Bottom Image-->
 <footer></footer>
 <script>
-    /**
-     *  Check for updates and prompt the user to close the app
-     */
-    window.isUpdateAvailable = new Promise(function(resolve, reject) {
-        // lazy way of disabling service workers while developing
-        if ('serviceWorker' in navigator) {
-            // register service worker file
-            navigator.serviceWorker.register('service-worker.js')
-                .then(reg => {
-                    reg.onupdatefound = () => {
-                        const installingWorker = reg.installing;
-                        installingWorker.onstatechange = () => {
-                            switch (installingWorker.state) {
-                                case 'installed':
-                                    if (navigator.serviceWorker.controller) {
-                                        // new update available
-                                        resolve(true);
-                                    } else {
-                                        // no update available
-                                        resolve(false);
-                                    }
-                                    break;
-                            }
-                        };
-                    };
-                }).catch(err => console.error('[SW ERROR]', err));
-        }
-    });
-
     window['isUpdateAvailable'].then(isAvailable => {
         if (isAvailable) {
             alert('New Update available! Reload the app to see the new changes.');
         }
     });
-    /**
-     * Attach service worker to application when page is loaded.
-     */
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('service-worker.js')
-                .catch(err => {
-                    console.error(err);
-                });
-        });
-    }
-    /**
-     * We first check if the device is offline. If true, hide the page elements
-     * that do not function offline, and tell the user they are offline.
-     */
-    if(!navigator.onLine) {
-        document.getElementById('offlineBanner').style.display = '';
-        document.getElementById('game').style.display = 'none';
-        document.getElementById('social').style.display = 'none';
-        document.getElementById('campMap').style.display = 'none';
-        document.getElementById('offlineCampMap').style.display = 'flex';
-        document.getElementById('campSurvey').style.display = 'none';
-        document.getElementById('store').style.display = 'none';
-        document.getElementById('call').style.display = 'flex';
-    }
-
-    /**
-     * Check if the device is running iOS. iOS does not fully support PWA's so
-     * we have to inform the user on how to install the app manually.
-     */
-    const isIos = () => {
-        const userAgent = window.navigator.userAgent.toLowerCase();
-        return /iphone|ipad|ipod/.test( userAgent );
-    }
-    //Check if the device is running the iOS app instead of on the web.
-    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
-
-    //Checks if we should show the install button for iOS, and creates a listener for it.
-    if (isIos() && !isInStandaloneMode()) {
-        document.getElementById('installBtn').addEventListener('click', event => {
-            alert('To install this app, open Safari, click on the share button, then scroll down till you see the "Add to Home Screen" option.' +
-                ' Click that, then click add to install the application.');
-        });
-        document.getElementById('installIcon').className = 'far fa-share-square fa-5x'
-        document.getElementById('installBtn').style.display = 'flex';
-    }
-    /**
-     * If the device is not an iOS device, check if we can prompt the user to
-     * install the PWA normally.
-     */
-    else {
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', event => {
-
-            //Stash the event so it can be triggered later.
-            deferredPrompt = event;
-
-            //Attach the install prompt to a user gesture
-            document.getElementById('installBtn').addEventListener('click', event => {
-
-                //Show the prompt
-                deferredPrompt.prompt();
-
-                //Wait for the user to respond to the prompt.
-                deferredPrompt.userChoice.then((choiceResult) => {deferredPrompt = null;});
-            });
-
-            //Show install button on screen in case the prompt did not work or was dismissed by the user.
-            document.getElementById('installBtn').style.display = 'flex';
-        });
-    }
 </script>
 </body>
 </html>

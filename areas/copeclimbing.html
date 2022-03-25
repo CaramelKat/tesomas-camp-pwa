@@ -83,111 +83,11 @@ This project makes use of the free version of Font Awesome for the icons.
 <!--Bottom Image-->
 <footer></footer>
 <script>
-    /**
-     *  Check for updates and prompt the user to close the app
-     */
-    window.isUpdateAvailable = new Promise(function(resolve, reject) {
-        // lazy way of disabling service workers while developing
-        if ('serviceWorker' in navigator) {
-            // register service worker file
-            navigator.serviceWorker.register('service-worker.js')
-                .then(reg => {
-                    reg.onupdatefound = () => {
-                        const installingWorker = reg.installing;
-                        installingWorker.onstatechange = () => {
-                            switch (installingWorker.state) {
-                                case 'installed':
-                                    if (navigator.serviceWorker.controller) {
-                                        // new update available
-                                        resolve(true);
-                                    } else {
-                                        // no update available
-                                        resolve(false);
-                                    }
-                                    break;
-                            }
-                        };
-                    };
-                }).catch(err => console.error('[SW ERROR]', err));
-        }
-    });
-
     window['isUpdateAvailable'].then(isAvailable => {
         if (isAvailable) {
             alert('New Update available! Reload the app to see the new changes.');
         }
     });
-    /**
-     * Attach service worker to application when page is loaded.
-     */
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('service-worker.js')
-                .catch(err => {
-                    console.error(err);
-                });
-        });
-    }
-    /**
-     * We first check if the device is offline. If true, hide the page elements
-     * that do not function offline, and tell the user they are offline.
-     */
-    if(!navigator.onLine) {
-        document.getElementById('offlineBanner').style.display = '';
-        document.getElementById('game').style.display = 'none';
-        document.getElementById('social').style.display = 'none';
-        document.getElementById('campMap').style.display = 'none';
-        document.getElementById('offlineCampMap').style.display = 'flex';
-        document.getElementById('campSurvey').style.display = 'none';
-        document.getElementById('store').style.display = 'none';
-        document.getElementById('call').style.display = 'flex';
-    }
-
-    /**
-     * Check if the device is running iOS. iOS does not fully support PWA's so
-     * we have to inform the user on how to install the app manually.
-     */
-    const isIos = () => {
-        const userAgent = window.navigator.userAgent.toLowerCase();
-        return /iphone|ipad|ipod/.test( userAgent );
-    }
-    //Check if the device is running the iOS app instead of on the web.
-    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
-
-    //Checks if we should show the install button for iOS, and creates a listener for it.
-    if (isIos() && !isInStandaloneMode()) {
-        document.getElementById('installBtn').addEventListener('click', event => {
-            alert('To install this app, open Safari, click on the share button, then scroll down till you see the "Add to Home Screen" option.' +
-                ' Click that, then click add to install the application.');
-        });
-        document.getElementById('installIcon').className = 'far fa-share-square fa-5x'
-        document.getElementById('installBtn').style.display = 'flex';
-    }
-    /**
-     * If the device is not an iOS device, check if we can prompt the user to
-     * install the PWA normally.
-     */
-    else {
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', event => {
-
-            //Stash the event so it can be triggered later.
-            deferredPrompt = event;
-
-            //Attach the install prompt to a user gesture
-            document.getElementById('installBtn').addEventListener('click', event => {
-
-                //Show the prompt
-                deferredPrompt.prompt();
-
-                //Wait for the user to respond to the prompt.
-                deferredPrompt.userChoice.then((choiceResult) => {deferredPrompt = null;});
-            });
-
-            //Show install button on screen in case the prompt did not work or was dismissed by the user.
-            document.getElementById('installBtn').style.display = 'flex';
-        });
-    }
 </script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+<!--
+Tesomas.Camp PWA Rewrite
+
+Written by Jay Poffinbarger
+
+This project makes use of the free version of Font Awesome for the icons.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="Description" content="Tesomas.Camp supplies quick access to information and tools that will make
+                                    your visit to Camp Tesomas as fun and engaging as possible.">
+    <script src="https://kit.fontawesome.com/1b88120e53.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+
+    <title>Tesomas Scout Camp</title>
+    <!--Import CSS and Web Manifest File-->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Tesomas Scout Camp">
+    <meta name="apple-mobile-web-app-title" content="Tesomas Scout Camp">
+    <meta name="theme-color" content="#517799">
+    <meta name="msapplication-navbutton-color" content="#517799">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <link rel="icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/touch/icon-128x128.png">
+    <link rel="icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/icon-192x192.png">
+    <link rel="icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="/images/touch/icon-256x256.png">
+    <link rel="icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/images/touch/icon-384x384.png">
+    <link rel="icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/icon-512x512.png">
+</head>
+
+<body>
+<header>
+    <i class="fas fa-chevron-left fa-2x" onclick="history.back()"></i>
+    <h1>Staff Portal</h1>
+</header>
+<!--Tile Elements Wrapper-->
+<div class="tile-wrapper">
+    <!--Main Tiles Wrapper-->
+    <ul>
+        <li id="needs-wants" onclick="location.href='https://samoset.workbright.com/users/sign_in'">
+            <h2>Workbright Paperwork</h2>
+            <div><a class="fas fa-address-card fa-5x"></a></div><br>
+        </li>
+        <li id="slideshows" onclick="location.href='https://www.dropbox.com/sh/4l7ccp9par35tip/AAAWM_utublkhnRc6HiyS3Wia?dl=0'">
+            <h2>Slideshows</h2>
+            <div><a class="fas fa-film fa-5x"></a></div><br>
+        </li>
+        <li id="photos" onclick="location.href='https://www.dropbox.com/sh/ctd7y03xm04w0wt/AACX1QpZ07gb9t1l6YUCCN-ta?dl=0'">
+            <h2>Photos</h2>
+            <div><a class="fas fa-images fa-5x"></a></div><br>
+        </li>
+    </ul>
+</div>
+<!--Bottom Image-->
+<footer></footer>
+<script>
+    window['isUpdateAvailable'].then(isAvailable => {
+        if (isAvailable) {
+            alert('New Update available! Reload the app to see the new changes.');
+        }
+    });
+</script>
+</body>
+</html>

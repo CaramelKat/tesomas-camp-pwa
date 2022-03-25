@@ -1,24 +1,16 @@
-const cacheName = 'Tesomas.Camp v2.0.27';
+const cacheName = 'Tesomas.Camp v2.0.30';
 const precacheResources = [
-    '/index.html',
-    '/areas.html',
-    '/info.html',
-    '/social.html',
-    '/store.html',
+    /*'/index',
+    '/areas',
+    '/info',
+    '/social',
+    '/store',*/
     '/css/main.css',
     '/css/waltographUI.ttf',
     '/images/background-dark.png',
     '/images/background-light.png',
     '/images/favicon.ico',
-    '/resources/2021_TSC_Guidebook.pdf',
-    '/resources/Eagle Quest Schedule 2021.pdf',
-    '/resources/TSC Advancement Schedule 2021.pdf',
-    '/resources/2021menu.pdf',
-    '/resources/Meal A Schedule.pdf',
-    '/resources/Meal B Schedule.pdf',
-    '/resources/2021 Pd 5 Schedule.pdf',
-    '/resources/P3 Schedule.pdf',
-    '/resources/mt_sched.pdf',
+    /*'/resources/2022_TSC_Guidebook.pdf',*/
     'https://kit.fontawesome.com/1b88120e53.js',
     'https://ka-f.fontawesome.com/releases/v5.15.3/css/free.min.css?token=1b88120e53',
     'https://ka-f.fontawesome.com/releases/v5.15.3/css/free-v4-shims.min.css?token=1b88120e53',

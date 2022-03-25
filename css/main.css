@@ -79,6 +79,13 @@ header > i {
   position: absolute;
   left: 15px;
 }
+.version {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  font-size: small;
+}
 
 .tile-wrapper {
   display: flex;
