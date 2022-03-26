@@ -2,6 +2,7 @@
 Tesomas.Camp PWA Rewrite
 
 Written by Jay Poffinbarger
+Designed by Ezra Eckerson
 
 This project makes use of the free version of Font Awesome for the icons.
 -->
@@ -14,12 +15,13 @@ This project makes use of the free version of Font Awesome for the icons.
     <script src="https://kit.fontawesome.com/1b88120e53.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
 
-    <title>Tesomas Scout Camp</title>
+    <title>Directors page</title>
     <!--Import CSS and Web Manifest File-->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="preload" href="/css/waltographUI.ttf">
 
     <!--iOS Specific PWA Elements. Can be removed once Apple supports web manifest-->
     <meta name="mobile-web-app-capable" content="yes">
@@ -45,35 +47,25 @@ This project makes use of the free version of Font Awesome for the icons.
 
 <body>
 <header>
-    <i class="fas fa-chevron-left fa-2x" onclick="history.back()"></i>
-    <h1>Directors Access</h1>
+    <h1>Directors Portal</h1>
 </header>
 <!--Tile Elements Wrapper-->
 <div class="tile-wrapper">
     <!--Main Tiles Wrapper-->
     <ul>
+        <!--Needs/Wants-->
         <li id="needs-wants" onclick="location.href='https://airtable.com/shrs64TYjH5b0VY2e'">
-            <h2>Needs/Wants</h2>
-            <div><a class="fas fa-file-invoice fa-5x"></a></div><br>
+            <h2>Needs Wants</h2>
+            <div><a class="fas fa-comment-dollar fa-5x"></a></div><br>
         </li>
+        <!--Work Request-->
         <li id="work-request" onclick="location.href='https://samoset.macmms.com/'">
-            <h2>Maintenance Request</h2>
+            <h2>Maintenance Requests</h2>
             <div><a class="fas fa-tools fa-5x"></a></div><br>
-        </li>
-        <li id="online-paperwork" onclick="location.href='https://samoset.doubleknot.com/Rosters/logon.aspx?orgkey=1438'">
-            <h2>Merit Badge Paperwork</h2>
-            <div><a class="fas fa-file fa-5x"></a></div><br>
         </li>
     </ul>
 </div>
 <!--Bottom Image-->
 <footer></footer>
-<script>
-    window['isUpdateAvailable'].then(isAvailable => {
-        if (isAvailable) {
-            alert('New Update available! Reload the app to see the new changes.');
-        }
-    });
-</script>
 </body>
 </html>
